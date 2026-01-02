@@ -42,9 +42,9 @@ export default function ParticipantsList({ refresh }: ParticipantsListProps) {
 
   if (loading) {
     return (
-      <div className="w-full max-w-2xl text-center text-zinc-400">
-        <div className="glass p-6 rounded-xl">
-          Chargement...
+      <div className="w-full max-w-2xl text-center">
+        <div className="graffiti-box p-8 rounded-2xl">
+          <p className="text-2xl font-bold text-cyan-300">⏳ Chargement de la crew...</p>
         </div>
       </div>
     );
@@ -52,41 +52,48 @@ export default function ParticipantsList({ refresh }: ParticipantsListProps) {
 
   if (participants.length === 0) {
     return (
-      <div className="w-full max-w-2xl text-center text-zinc-400">
-        <div className="glass p-6 rounded-xl">
-          Aucune inscription pour le moment
+      <div className="w-full max-w-2xl text-center">
+        <div className="graffiti-box p-8 rounded-2xl">
+          <p className="text-2xl font-bold text-pink-300">😢 Personne encore...</p>
+          <p className="text-lg text-cyan-300 mt-2">Sois le premier à rejoindre la party! 🎉</p>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="w-full max-w-2xl space-y-4">
-      <div className="text-center mb-6">
-        <p className="text-2xl font-light text-white">
-          <span className="text-4xl font-medium bg-gradient-to-r from-purple-300 to-pink-300 bg-clip-text text-transparent">{total}</span> {total > 1 ? 'personnes inscrites' : 'personne inscrite'}
+    <div className="w-full max-w-2xl space-y-5">
+      <div className="text-center mb-8">
+        <p className="text-3xl font-bold" style={{fontFamily: 'Bebas Neue, cursive'}}>
+          <span className="text-6xl font-bold neon-text">{total}</span>
+          <span className="text-yellow-300 ml-3">{total > 1 ? 'MEMBRES DANS LA CREW!' : 'MEMBRE DANS LA CREW!'}</span>
         </p>
       </div>
 
-      <div className="space-y-3">
-        {participants.map((participant) => (
+      <div className="space-y-4">
+        {participants.map((participant, index) => (
           <div
             key={participant.id}
-            className="p-4 glass glass-hover rounded-xl"
+            className="p-5 participant-card rounded-2xl"
           >
             <div className="flex justify-between items-start">
-              <div>
-                <p className="font-medium text-lg text-white">
-                  {participant.prenom} {participant.nom}
-                </p>
-                <p className="text-sm text-zinc-300 mt-1">{participant.email}</p>
-                <p className="text-sm text-zinc-300">{participant.telephone}</p>
+              <div className="flex items-start gap-3">
+                <span className="text-3xl">
+                  {['🎤', '🎧', '🎸', '🎹', '🥁', '🎺', '🎻', '🎷'][index % 8]}
+                </span>
+                <div>
+                  <p className="font-bold text-xl text-yellow-300" style={{fontFamily: 'Permanent Marker, cursive'}}>
+                    {participant.prenom} {participant.nom}
+                  </p>
+                  <p className="text-base text-cyan-300 mt-1">📧 {participant.email}</p>
+                  <p className="text-base text-pink-300">📱 {participant.telephone}</p>
+                </div>
               </div>
               {participant.accompagnants > 0 && (
                 <div className="text-right">
-                  <div className="px-3 py-1 glass rounded-full">
-                    <p className="text-sm text-purple-300 font-medium">
-                      +{participant.accompagnants} {participant.accompagnants > 1 ? 'accompagnants' : 'accompagnant'}
+                  <div className="px-4 py-2 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 border-2 border-yellow-300">
+                    <p className="text-base text-white font-bold">
+                      +{participant.accompagnants} {participant.accompagnants > 1 ? '👥 POTES' : '👤 POTE'}
                     </p>
                   </div>
                 </div>

@@ -51,10 +51,10 @@ export default function RegistrationForm({ onSuccess }: RegistrationFormProps) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4 w-full max-w-md">
+    <form onSubmit={handleSubmit} className="space-y-5 w-full max-w-md">
       <div>
-        <label htmlFor="prenom" className="block text-sm font-medium mb-1 text-zinc-200">
-          Prénom *
+        <label htmlFor="prenom" className="block text-lg font-bold mb-2 text-cyan-300" style={{fontFamily: 'Bebas Neue, cursive', letterSpacing: '1px'}}>
+          👤 TON PRÉNOM *
         </label>
         <input
           type="text"
@@ -62,14 +62,14 @@ export default function RegistrationForm({ onSuccess }: RegistrationFormProps) {
           required
           value={formData.prenom}
           onChange={(e) => setFormData({ ...formData, prenom: e.target.value })}
-          className="w-full px-4 py-2 glass-input rounded-lg text-white placeholder-zinc-400"
-          placeholder="Votre prénom"
+          className="w-full px-4 py-3 hiphop-input rounded-xl text-white placeholder-gray-400 text-lg"
+          placeholder="Ton petit nom..."
         />
       </div>
 
       <div>
-        <label htmlFor="nom" className="block text-sm font-medium mb-1 text-zinc-200">
-          Nom *
+        <label htmlFor="nom" className="block text-lg font-bold mb-2 text-pink-300" style={{fontFamily: 'Bebas Neue, cursive', letterSpacing: '1px'}}>
+          📛 TON NOM *
         </label>
         <input
           type="text"
@@ -77,14 +77,14 @@ export default function RegistrationForm({ onSuccess }: RegistrationFormProps) {
           required
           value={formData.nom}
           onChange={(e) => setFormData({ ...formData, nom: e.target.value })}
-          className="w-full px-4 py-2 glass-input rounded-lg text-white placeholder-zinc-400"
-          placeholder="Votre nom"
+          className="w-full px-4 py-3 hiphop-input rounded-xl text-white placeholder-gray-400 text-lg"
+          placeholder="Ton blaze..."
         />
       </div>
 
       <div>
-        <label htmlFor="email" className="block text-sm font-medium mb-1 text-zinc-200">
-          Email *
+        <label htmlFor="email" className="block text-lg font-bold mb-2 text-yellow-300" style={{fontFamily: 'Bebas Neue, cursive', letterSpacing: '1px'}}>
+          📧 TON EMAIL *
         </label>
         <input
           type="email"
@@ -92,14 +92,14 @@ export default function RegistrationForm({ onSuccess }: RegistrationFormProps) {
           required
           value={formData.email}
           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-          className="w-full px-4 py-2 glass-input rounded-lg text-white placeholder-zinc-400"
-          placeholder="votre@email.com"
+          className="w-full px-4 py-3 hiphop-input rounded-xl text-white placeholder-gray-400 text-lg"
+          placeholder="ton@email.com"
         />
       </div>
 
       <div>
-        <label htmlFor="telephone" className="block text-sm font-medium mb-1 text-zinc-200">
-          Téléphone *
+        <label htmlFor="telephone" className="block text-lg font-bold mb-2 text-purple-300" style={{fontFamily: 'Bebas Neue, cursive', letterSpacing: '1px'}}>
+          📱 TON TÉL *
         </label>
         <input
           type="tel"
@@ -107,14 +107,14 @@ export default function RegistrationForm({ onSuccess }: RegistrationFormProps) {
           required
           value={formData.telephone}
           onChange={(e) => setFormData({ ...formData, telephone: e.target.value })}
-          className="w-full px-4 py-2 glass-input rounded-lg text-white placeholder-zinc-400"
+          className="w-full px-4 py-3 hiphop-input rounded-xl text-white placeholder-gray-400 text-lg"
           placeholder="06 XX XX XX XX"
         />
       </div>
 
       <div>
-        <label htmlFor="accompagnants" className="block text-sm font-medium mb-1 text-zinc-200">
-          Nombre d'accompagnants
+        <label htmlFor="accompagnants" className="block text-lg font-bold mb-2 text-orange-300" style={{fontFamily: 'Bebas Neue, cursive', letterSpacing: '1px'}}>
+          👥 TES POTES (+)
         </label>
         <input
           type="number"
@@ -123,23 +123,23 @@ export default function RegistrationForm({ onSuccess }: RegistrationFormProps) {
           max="10"
           value={formData.accompagnants}
           onChange={(e) => setFormData({ ...formData, accompagnants: parseInt(e.target.value) || 0 })}
-          className="w-full px-4 py-2 glass-input rounded-lg text-white placeholder-zinc-400"
-          placeholder="0"
+          className="w-full px-4 py-3 hiphop-input rounded-xl text-white placeholder-gray-400 text-lg"
+          placeholder="Combien de potes?"
         />
       </div>
 
       {error && (
-        <div className="p-3 glass rounded-lg text-red-300 text-sm border border-red-500/30 bg-red-500/10">
-          {error}
+        <div className="p-4 rounded-xl text-red-300 text-base border-2 border-red-500 bg-red-900/50 font-bold">
+          ⚠️ {error}
         </div>
       )}
 
       <button
         type="submit"
         disabled={loading}
-        className="w-full py-3 glass-button rounded-lg font-medium text-white"
+        className="w-full py-4 funky-button rounded-xl font-bold text-white text-xl shadow-2xl"
       >
-        {loading ? 'Inscription en cours...' : 'S\'inscrire'}
+        {loading ? '⏳ EN COURS...' : '🎉 REJOINDRE LA FÊTE!'}
       </button>
     </form>
   );
