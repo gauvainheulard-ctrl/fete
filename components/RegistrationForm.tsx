@@ -53,7 +53,7 @@ export default function RegistrationForm({ onSuccess }: RegistrationFormProps) {
   return (
     <form onSubmit={handleSubmit} className="space-y-4 w-full max-w-md">
       <div>
-        <label htmlFor="prenom" className="block text-sm font-medium mb-1">
+        <label htmlFor="prenom" className="block text-sm font-medium mb-1 text-zinc-200">
           Prénom *
         </label>
         <input
@@ -62,12 +62,13 @@ export default function RegistrationForm({ onSuccess }: RegistrationFormProps) {
           required
           value={formData.prenom}
           onChange={(e) => setFormData({ ...formData, prenom: e.target.value })}
-          className="w-full px-4 py-2 bg-zinc-900 border border-zinc-700 rounded-lg focus:outline-none focus:border-zinc-500 transition-colors"
+          className="w-full px-4 py-2 glass-input rounded-lg text-white placeholder-zinc-400"
+          placeholder="Votre prénom"
         />
       </div>
 
       <div>
-        <label htmlFor="nom" className="block text-sm font-medium mb-1">
+        <label htmlFor="nom" className="block text-sm font-medium mb-1 text-zinc-200">
           Nom *
         </label>
         <input
@@ -76,12 +77,13 @@ export default function RegistrationForm({ onSuccess }: RegistrationFormProps) {
           required
           value={formData.nom}
           onChange={(e) => setFormData({ ...formData, nom: e.target.value })}
-          className="w-full px-4 py-2 bg-zinc-900 border border-zinc-700 rounded-lg focus:outline-none focus:border-zinc-500 transition-colors"
+          className="w-full px-4 py-2 glass-input rounded-lg text-white placeholder-zinc-400"
+          placeholder="Votre nom"
         />
       </div>
 
       <div>
-        <label htmlFor="email" className="block text-sm font-medium mb-1">
+        <label htmlFor="email" className="block text-sm font-medium mb-1 text-zinc-200">
           Email *
         </label>
         <input
@@ -90,12 +92,13 @@ export default function RegistrationForm({ onSuccess }: RegistrationFormProps) {
           required
           value={formData.email}
           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-          className="w-full px-4 py-2 bg-zinc-900 border border-zinc-700 rounded-lg focus:outline-none focus:border-zinc-500 transition-colors"
+          className="w-full px-4 py-2 glass-input rounded-lg text-white placeholder-zinc-400"
+          placeholder="votre@email.com"
         />
       </div>
 
       <div>
-        <label htmlFor="telephone" className="block text-sm font-medium mb-1">
+        <label htmlFor="telephone" className="block text-sm font-medium mb-1 text-zinc-200">
           Téléphone *
         </label>
         <input
@@ -104,12 +107,13 @@ export default function RegistrationForm({ onSuccess }: RegistrationFormProps) {
           required
           value={formData.telephone}
           onChange={(e) => setFormData({ ...formData, telephone: e.target.value })}
-          className="w-full px-4 py-2 bg-zinc-900 border border-zinc-700 rounded-lg focus:outline-none focus:border-zinc-500 transition-colors"
+          className="w-full px-4 py-2 glass-input rounded-lg text-white placeholder-zinc-400"
+          placeholder="06 XX XX XX XX"
         />
       </div>
 
       <div>
-        <label htmlFor="accompagnants" className="block text-sm font-medium mb-1">
+        <label htmlFor="accompagnants" className="block text-sm font-medium mb-1 text-zinc-200">
           Nombre d'accompagnants
         </label>
         <input
@@ -119,12 +123,13 @@ export default function RegistrationForm({ onSuccess }: RegistrationFormProps) {
           max="10"
           value={formData.accompagnants}
           onChange={(e) => setFormData({ ...formData, accompagnants: parseInt(e.target.value) || 0 })}
-          className="w-full px-4 py-2 bg-zinc-900 border border-zinc-700 rounded-lg focus:outline-none focus:border-zinc-500 transition-colors"
+          className="w-full px-4 py-2 glass-input rounded-lg text-white placeholder-zinc-400"
+          placeholder="0"
         />
       </div>
 
       {error && (
-        <div className="p-3 bg-red-950 border border-red-800 rounded-lg text-red-300 text-sm">
+        <div className="p-3 glass rounded-lg text-red-300 text-sm border border-red-500/30 bg-red-500/10">
           {error}
         </div>
       )}
@@ -132,7 +137,7 @@ export default function RegistrationForm({ onSuccess }: RegistrationFormProps) {
       <button
         type="submit"
         disabled={loading}
-        className="w-full py-3 bg-zinc-800 hover:bg-zinc-700 disabled:bg-zinc-900 disabled:cursor-not-allowed rounded-lg font-medium transition-colors"
+        className="w-full py-3 glass-button rounded-lg font-medium text-white"
       >
         {loading ? 'Inscription en cours...' : 'S\'inscrire'}
       </button>

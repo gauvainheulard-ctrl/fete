@@ -42,16 +42,20 @@ export default function ParticipantsList({ refresh }: ParticipantsListProps) {
 
   if (loading) {
     return (
-      <div className="w-full max-w-2xl text-center text-zinc-500">
-        Chargement...
+      <div className="w-full max-w-2xl text-center text-zinc-400">
+        <div className="glass p-6 rounded-xl">
+          Chargement...
+        </div>
       </div>
     );
   }
 
   if (participants.length === 0) {
     return (
-      <div className="w-full max-w-2xl text-center text-zinc-500">
-        Aucune inscription pour le moment
+      <div className="w-full max-w-2xl text-center text-zinc-400">
+        <div className="glass p-6 rounded-xl">
+          Aucune inscription pour le moment
+        </div>
       </div>
     );
   }
@@ -59,8 +63,8 @@ export default function ParticipantsList({ refresh }: ParticipantsListProps) {
   return (
     <div className="w-full max-w-2xl space-y-4">
       <div className="text-center mb-6">
-        <p className="text-2xl font-light">
-          <span className="text-4xl font-medium">{total}</span> {total > 1 ? 'personnes inscrites' : 'personne inscrite'}
+        <p className="text-2xl font-light text-white">
+          <span className="text-4xl font-medium bg-gradient-to-r from-purple-300 to-pink-300 bg-clip-text text-transparent">{total}</span> {total > 1 ? 'personnes inscrites' : 'personne inscrite'}
         </p>
       </div>
 
@@ -68,21 +72,23 @@ export default function ParticipantsList({ refresh }: ParticipantsListProps) {
         {participants.map((participant) => (
           <div
             key={participant.id}
-            className="p-4 bg-zinc-900 border border-zinc-800 rounded-lg hover:border-zinc-700 transition-colors"
+            className="p-4 glass glass-hover rounded-xl"
           >
             <div className="flex justify-between items-start">
               <div>
-                <p className="font-medium text-lg">
+                <p className="font-medium text-lg text-white">
                   {participant.prenom} {participant.nom}
                 </p>
-                <p className="text-sm text-zinc-400 mt-1">{participant.email}</p>
-                <p className="text-sm text-zinc-400">{participant.telephone}</p>
+                <p className="text-sm text-zinc-300 mt-1">{participant.email}</p>
+                <p className="text-sm text-zinc-300">{participant.telephone}</p>
               </div>
               {participant.accompagnants > 0 && (
                 <div className="text-right">
-                  <p className="text-sm text-zinc-500">
-                    +{participant.accompagnants} {participant.accompagnants > 1 ? 'accompagnants' : 'accompagnant'}
-                  </p>
+                  <div className="px-3 py-1 glass rounded-full">
+                    <p className="text-sm text-purple-300 font-medium">
+                      +{participant.accompagnants} {participant.accompagnants > 1 ? 'accompagnants' : 'accompagnant'}
+                    </p>
+                  </div>
                 </div>
               )}
             </div>
